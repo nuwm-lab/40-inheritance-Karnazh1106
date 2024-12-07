@@ -1,5 +1,6 @@
 using System;
 
+// Клас "Прямокутник"
 public class Rectangle
 {
     protected double a1, a2, b1, b2; // Коефіцієнти прямокутника
@@ -8,20 +9,20 @@ public class Rectangle
     // Метод для задання коефіцієнтів
     public virtual void SetCoefficients()
     {
-        Console.WriteLine("Enter coefficient a1: ");
+        Console.WriteLine("Введіть коефіцієнт a1: ");
         a1 = double.Parse(Console.ReadLine());
-        Console.WriteLine("Enter coefficient a2: ");
+        Console.WriteLine("Введіть коефіцієнт a2: ");
         a2 = double.Parse(Console.ReadLine());
-        Console.WriteLine("Enter coefficient b1: ");
+        Console.WriteLine("Введіть коефіцієнт b1: ");
         b1 = double.Parse(Console.ReadLine());
-        Console.WriteLine("Enter coefficient b2: ");
+        Console.WriteLine("Введіть коефіцієнт b2: ");
         b2 = double.Parse(Console.ReadLine());
     }
 
-    // Метод для перевірки точки
+    // Метод перевірки точки
     public virtual void CheckPoint()
     {
-        Console.WriteLine("Enter the coordinates of the point:");
+        Console.WriteLine("Введіть координати точки:");
         Console.Write("x: ");
         x = double.Parse(Console.ReadLine());
         Console.Write("y: ");
@@ -29,22 +30,22 @@ public class Rectangle
 
         if (b1 <= x && x <= a1 && b2 <= y && y <= a2)
         {
-            Console.WriteLine("The point is inside the rectangle.");
+            Console.WriteLine("Точка знаходиться всередині прямокутника.");
         }
         else
         {
-            Console.WriteLine("The point is outside the rectangle.");
+            Console.WriteLine("Точка знаходиться за межами прямокутника.");
         }
     }
 
     // Метод для виведення коефіцієнтів
     public virtual void DisplayCoefficients()
     {
-        Console.WriteLine($"Rectangle coefficients: a1 = {a1}, b1 = {b1}, a2 = {a2}, b2 = {b2}");
+        Console.WriteLine($"Коефіцієнти прямокутника: a1 = {a1}, b1 = {b1}, a2 = {a2}, b2 = {b2}");
     }
 }
 
-// Похідний клас "паралелепіпед"
+// Похідний клас "Паралелепіпед"
 public class Parallelepiped : Rectangle
 {
     private double a3, b3; // Додаткові коефіцієнти
@@ -54,16 +55,16 @@ public class Parallelepiped : Rectangle
     public override void SetCoefficients()
     {
         base.SetCoefficients();
-        Console.WriteLine("Enter coefficient a3: ");
+        Console.WriteLine("Введіть коефіцієнт a3: ");
         a3 = double.Parse(Console.ReadLine());
-        Console.WriteLine("Enter coefficient b3: ");
+        Console.WriteLine("Введіть коефіцієнт b3: ");
         b3 = double.Parse(Console.ReadLine());
     }
 
-    // Перевизначений метод для перевірки точки
+    // Перевизначений метод перевірки точки
     public override void CheckPoint()
     {
-        Console.WriteLine("Enter the coordinates of the point:");
+        Console.WriteLine("Введіть координати точки:");
         Console.Write("x: ");
         x = double.Parse(Console.ReadLine());
         Console.Write("y: ");
@@ -73,18 +74,18 @@ public class Parallelepiped : Rectangle
 
         if (b1 <= x && x <= a1 && b2 <= y && y <= a2 && b3 <= z && z <= a3)
         {
-            Console.WriteLine("The point is inside the parallelepiped.");
+            Console.WriteLine("Точка знаходиться всередині паралелепіпеда.");
         }
         else
         {
-            Console.WriteLine("The point is outside the parallelepiped.");
+            Console.WriteLine("Точка знаходиться за межами паралелепіпеда.");
         }
     }
 
     // Перевизначений метод для виведення коефіцієнтів
     public override void DisplayCoefficients()
     {
-        Console.WriteLine($"Parallelepiped coefficients: a1 = {a1}, b1 = {b1}, a2 = {a2}, b2 = {b2}, a3 = {a3}, b3 = {b3}");
+        Console.WriteLine($"Коефіцієнти паралелепіпеда: a1 = {a1}, b1 = {b1}, a2 = {a2}, b2 = {b2}, a3 = {a3}, b3 = {b3}");
     }
 }
 
@@ -93,16 +94,16 @@ public class Test
 {
     public static void Main(string[] args)
     {
-        // Об'єкт класу "прямокутник"
+        // Об'єкт класу "Прямокутник"
         Rectangle rectangle = new Rectangle();
-        Console.WriteLine("Rectangle:");
+        Console.WriteLine("Прямокутник:");
         rectangle.SetCoefficients();
         rectangle.CheckPoint();
         rectangle.DisplayCoefficients();
 
-        // Об'єкт класу "паралелепіпед"
+        // Об'єкт класу "Паралелепіпед"
         Parallelepiped parallelepiped = new Parallelepiped();
-        Console.WriteLine("\nParallelepiped:");
+        Console.WriteLine("\nПаралелепіпед:");
         parallelepiped.SetCoefficients();
         parallelepiped.CheckPoint();
         parallelepiped.DisplayCoefficients();
